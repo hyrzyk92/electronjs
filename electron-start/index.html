@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <style>
+      .heng{
+        width: 100px;
+        height: 200px;
+        background: greenyellow;
+      }
+      .shu{
+        width: 200px;
+        height: 100px;
+        background: peru;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    <p>1111111111111111111</p>
+    <div class="box shu"></div>
+  </body>
+  <script>
+    const { ipcRenderer } = require('electron')
+    ipcRenderer.on('change-size', (event, arg)=>{
+      const box = document.querySelector('.box')
+      if(arg === 'heng'){
+        box.classList.remove('shu')
+        box.classList.add('heng')
+      }else{
+        box.classList.remove('heng')
+        box.classList.add('shu')
+      }
+    })
+  </script>
+</html>

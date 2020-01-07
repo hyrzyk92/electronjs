@@ -1,0 +1,19 @@
+{
+  "name": "electron-start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build:win": "electron-packager ./ hello --platform=win32 --out ./dist --electron-version 7.1.7 --overwrite --icon=./favicon.ico"
+  },
+  "author": "yang",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.1.7"
+  },
+  "dependencies": {
+    "electron-packager": "^14.1.1"
+  }
+}
